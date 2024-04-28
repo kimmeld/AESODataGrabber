@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: aesopoll
-          image: ghcr.io/kimmeld/AESOGrabber
+          image: ghcr.io/kimmeld/aesodatagrabber:main
           imagePullPolicy: Always
           env:
             - name: AESO_API_KEY
@@ -28,7 +28,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: aesopoll-secrets
-                  key:  AWS_SECRET_ACCESS_KEY
+                  key:  AESO_DB_URL
             - name:  AESO_POLL_DELAY
               valueFrom:
                 configMapKeyRef:
