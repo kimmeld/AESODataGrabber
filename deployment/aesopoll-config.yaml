@@ -1,0 +1,7 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name:  aesopoll-config
+data:
+  AESO_POLL_DELAY: "60"

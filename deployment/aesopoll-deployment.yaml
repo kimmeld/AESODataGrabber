@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: aesopoll
+  name: aesopoll
+spec:
+  selector:
+    matchLabels:
+      app: aesopoll
+  template:
+    metadata:
+      labels:
+        app: aesopoll
+    spec:
+      containers:
+        - name: aesopoll
+          image: ghcr.io/kimmeld/AESOGrabber
+          imagePullPolicy: Always
+          env:
+            - name: AESO_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aesopoll-secrets
+                  key: AESO_API_KEY
+            - name: AESO_DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: aesopoll-secrets
+                  key:  AWS_SECRET_ACCESS_KEY
+            - name:  AESO_POLL_DELAY
+              valueFrom:
+                configMapKeyRef:
+                  name: aesopoll-config
+                  key:  AESO_POLL_DELAY
