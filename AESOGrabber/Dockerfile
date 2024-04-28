@@ -1,7 +1,7 @@
-FROM python:3.10
+FROM python:3.12
 
 RUN pip3 install --no-cache-dir --upgrade pip &&\
-    adduser --system worker
+    adduser --system worker -m /home/worker
 
 USER worker
 WORKDIR /home/worker
