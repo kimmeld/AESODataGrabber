@@ -13,6 +13,8 @@ engine = create_engine(DB_URL)
 
 with engine.connect() as conn:
     while True:
+        time.sleep(POLL_DELAY)
+        
         # Fetch per-asset generation data
         resp = requests.get(
             "https://api.aeso.ca/report/v1/csd/generation/assets/current",
@@ -96,5 +98,3 @@ with engine.connect() as conn:
                 pass
             finally:
                 conn.commit()
-
-        time.sleep(POLL_DELAY)
