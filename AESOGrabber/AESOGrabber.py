@@ -65,7 +65,7 @@ with engine.connect() as conn:
                         "dispatched_contingency_reserve_other, lssi_armed_dispatch, lssi_offered_volume ) "
                         "values (:ts, :total_max_generation_capability, :total_net_generation, :net_to_grid_generation, :net_actual_interchange, "
                         ":alberta_internal_load, :contingency_reserve_required, :dispatched_contigency_reserve_total, :dispatched_contingency_reserve_gen, "
-                        ":dispatched_contingency_reserve_other, :lssi_armed_dispatch, :lssi_offered_volume)"
+                        ":dispatched_contingency_reserve_other, :ffr_armed_dispatch, :ffr_offered_volume)"
                     ),
                     data,
                 )
