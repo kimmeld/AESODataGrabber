@@ -18,7 +18,7 @@ with engine.connect() as conn:
         # Fetch per-asset generation data
         resp = requests.get(
             "https://apimgw.aeso.ca/public/currentsupplydemand-api/v1/csd/generation/assets/current",
-            headers={"X-API-Key": AESO_API_KEY},
+            headers={"API-KEY": AESO_API_KEY},
         )
         jsondata = resp.json()
         ts = datetime.datetime.strptime(
@@ -46,7 +46,7 @@ with engine.connect() as conn:
         # Fetch summary data
         resp = requests.get(
             "https://apimgw.aeso.ca/public/currentsupplydemand-api/v1/csd/summary/current",
-            headers={"X-API-Key": AESO_API_KEY},
+            headers={"API-KEY": AESO_API_KEY},
         )
         jsondata = resp.json()
         ts = datetime.datetime.strptime(
